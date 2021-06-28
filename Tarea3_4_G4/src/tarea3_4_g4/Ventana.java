@@ -17,38 +17,29 @@ import javax.swing.*;
 public class Ventana extends JFrame implements ActionListener {
 
     JButton TirarHueso;
-    JLabel perro,hueso;
+    Hueso hueso;
+    Perro Perro;
+    boolean izquierda = true;//Izquierda es false es por que ira a la derecha
+    boolean Quieto = true;
+    
 
     public Ventana() {
+        Perro = new Perro();
+        Perro.setLayout(null);
+        Perro.setBounds(50, 50, 160, 120);
+
+
+        hueso = new Hueso();
+        hueso.setLayout(null);
+        hueso.setBounds(80, 10, 500, 500);
+        hueso.setVisible(true);
+        this.add(hueso);
 
         TirarHueso = new JButton("TIRAR HUESO");
         TirarHueso.setBounds(600, 570, 160, 45);
         TirarHueso.setVisible(true);
         TirarHueso.addActionListener(this);
         this.add(TirarHueso);
-
-        perro = new JLabel();
-        perro.setLayout(null);
-        perro.setBounds(200, 120, 160 , 120);
-        ImageIcon foto;
-        foto = new ImageIcon("perrocaminando.gif");
-        perro.setIcon(foto);
-        perro.setVisible(true);
-        this.add(perro);
-        
-        hueso = new JLabel();
-        hueso.setLayout(null);
-        hueso.setBounds(150, 120, 160 , 120);
-       ImageIcon foto1;
-        foto = new ImageIcon("hueso.png");
-        hueso.setIcon(foto);
-        hueso.setVisible(true);
-        this.add(hueso);
-
-//        JLabel j1 = new JLabel("PERRO");
-//        j1.setLayout(null);
-//        j1.setBounds(100, 100, 50, 100);
-//        this.add(j1);
 
         this.setTitle("HILOS");
         this.setBounds(0, 0, 800, 700);
@@ -57,6 +48,9 @@ public class Ventana extends JFrame implements ActionListener {
         this.setResizable(false);
         this.setVisible(true);
         this.setLocationRelativeTo(null);
+
+        this.add(Perro);
+
     }
 
     @Override
